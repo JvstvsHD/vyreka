@@ -26,14 +26,28 @@
 
 package de.jvstvshd.vyreka.path
 
-import de.jvstvshd.vyreka.Locatable
-import de.jvstvshd.vyreka.Location
+import de.jvstvshd.vyreka.core.Locatable
+import de.jvstvshd.vyreka.core.Location
 
+/**
+ * A supplier that provides the cost of traveling between two cells in a juxtaposition. This will not calculate the cost
+ * of a total path, but only the cost of traveling between two cells. The cost is represented as an integer, where a higher
+ * value means a higher cost. The cost should be positive and non-negative.
+ * @since 1.0.0
+ */
 interface CellTravelCostSupplier {
 
-    fun getCost(start: Location, end: Location): Int
+    /**
+     * Calculates the cost of traveling between two locations. The cost should be positive and non-negative.
+     */
+    operator fun invoke(start: Location, end: Location): Int
 
-    fun getCost(start: Locatable, end: Locatable): Int = getCost(start.location, end.location)
+    /**
+     * Calculates the cost of traveling between two locatable objects. The cost should be positive and non-negative.
+     * Note: If at least on of the locatable objects is a [de.jvstvshd.vyreka.core.Movable], only the current location
+     * will be considered.
+     */
+    operator fun invoke(start: Locatable, end: Locatable): Int = invoke(start.location, end.location)
 
     /**
      * The maximum cost of traveling between two cells in a juxtaposition.

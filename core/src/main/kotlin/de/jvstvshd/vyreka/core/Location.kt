@@ -24,7 +24,7 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka
+package de.jvstvshd.vyreka.core
 
 import kotlin.math.sqrt
 

@@ -24,21 +24,35 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka.path.finder.dijkstra
+package de.jvstvshd.vyreka.path.routing.dijkstra
 
-import de.jvstvshd.vyreka.cell.Cell
-import de.jvstvshd.vyreka.cell.CellAccessMode
+import de.jvstvshd.vyreka.core.cell.Cell
+import de.jvstvshd.vyreka.core.cell.CellAccessMode
 import de.jvstvshd.vyreka.path.CellTravelCostSupplier
 import de.jvstvshd.vyreka.path.Path
-import de.jvstvshd.vyreka.path.finder.PathFindingAlgorithm
-import de.jvstvshd.vyreka.path.finder.PathFindingResult
+import de.jvstvshd.vyreka.path.routing.RoutingAlgorithm
+import de.jvstvshd.vyreka.path.routing.RoutingResult
 import de.jvstvshd.vyreka.path.path
 import java.util.*
 import kotlin.time.measureTimedValue
 
-object DijkstraAlgorithm : PathFindingAlgorithm {
+/**
+ * Dijsktra's algorithm for finding the optimal path between two cells.
+ * Short description of the algorithm:
+ * 1. Create a priority queue of paths.
+ * 2. Add the start cell to the queue.
+ * 3. While the last cell in the path is not the end cell:
+ *     1. For each neighbor of the last cell:
+ *          1. Fork the path to the neighbor.
+ *          2. Add the forked path to the queue.
+ *     2. Poll the queue to get the next path.
+ *     3. Repeat until the last cell in the path is the end cell.
+ * 4. Return the path.
+ * For more information, refer to [https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm](Dijkstra's algorithm on Wikipedia).
+ */
+object DijkstraAlgorithm : RoutingAlgorithm {
 
-    override fun findPath(start: Cell, end: Cell, travelCost: CellTravelCostSupplier): PathFindingResult {
+    override fun findPath(start: Cell, end: Cell, travelCost: CellTravelCostSupplier): RoutingResult {
         validateInput(start, end)
         val pathsQueue: Queue<Path> = PriorityQueue(Comparator.naturalOrder())
         var path = start.path()
@@ -59,8 +73,11 @@ object DijkstraAlgorithm : PathFindingAlgorithm {
             }
             path
         }
-        start.map.clearPaths()
-        return PathFindingResult(tv.value, tv.duration, actions)
+        return RoutingResult(tv.value, tv.duration, actions)
+    }
+
+    override fun getAlgorithmName(): String {
+        return "dijkstra"
     }
 
     private fun validateInput(start: Cell, end: Cell) {
@@ -68,48 +85,3 @@ object DijkstraAlgorithm : PathFindingAlgorithm {
         require(start.map == end.map) { "Start and end cells must be on the same map" }
     }
 }
-
-/*internal class DijkstraDelegateMap(val delegate: Map) : Map by delegate {
-
-    val cellCache = mutableMapOf<Location, Cell>()
-
-    override fun getCellAt(location: Location): Cell {
-        return delegate.getCellAt(location).delegate()
-    }
-
-    override fun getStart(): Cell {
-        return delegate.getStart().delegate()
-    }
-
-    override fun getEnd(): Cell {
-        return delegate.getEnd().delegate()
-    }
-
-    @JvmName("delegateExt")
-    private fun Cell.delegate(): Cell {
-        return cellCache.getOrPut(location) { DijkstraDelegateCell(this, this@DijkstraDelegateMap) }
-    }
-
-    fun delegate(cell: Cell): Cell {
-        return cell.delegate()
-    }
-}*/
-
-/*
-internal class DijkstraDelegateCell(val delegate: Cell, override val map: DijkstraDelegateMap) : Cell by delegate {
-
-    var currentFastestVisit: Int = Int.MAX_VALUE
-
-
-    override fun getNeighbors(mode: CellAccessMode, includeDiagonals: Boolean): List<Cell> {
-        return delegate.getNeighbors(mode, includeDiagonals).map { (map as DijkstraDelegateMap).delegate(it) }
-    }
-
-    override fun path(): Path {
-        return SimplePath(this, 0, listOf(this))
-    }
-
-    override fun toString(): String {
-        return "DijkstraDelegateCell(delegate=$delegate, currentFastestVisit=$currentFastestVisit, currentFastestPath=$currentFastestPath)"
-    }
-}*/

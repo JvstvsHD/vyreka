@@ -24,10 +24,10 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka.map
+package de.jvstvshd.vyreka.core.map
 
-import de.jvstvshd.vyreka.Location
-import de.jvstvshd.vyreka.cell.Cell
+import de.jvstvshd.vyreka.core.Location
+import de.jvstvshd.vyreka.core.cell.Cell
 
 /**
  * A layer of a map. A layer is a two-dimensional grid of cells which are all on the same y-level.

@@ -24,6 +24,13 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka
+package de.jvstvshd.vyreka.core
 
-data class Dimension(val width: Int, val height: Int)
+/**
+ * Represents a dimension in a 3-dimensional space. This class is immutable.
+ * @since 1.0.0
+ * @param width The width of the dimension (x-axis).
+ * @param height The height of the dimension (y-axis).
+ * @param depth The depth of the dimension (z-axis).
+ */
+data class Dimension(val width: Int, val height: Int, val depth: Int)

@@ -24,9 +24,17 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka
+package de.jvstvshd.vyreka.core
 
+/**
+ * Represents an entity that is able to be located in a 3-dimensional space.
+ * @since 1.0.0
+ * @see Location
+ */
 interface Locatable {
 
+    /**
+     * The location of the entity it is located at. This value is static and cannot be changed.
+     */
     val location: Location
 }

@@ -24,22 +24,28 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka
+package de.jvstvshd.vyreka.path.routing
 
-import kotlin.math.pow
+import de.jvstvshd.vyreka.core.cell.Cell
+import de.jvstvshd.vyreka.path.CellTravelCostSupplier
 
-fun Int.pow(exponent: Int): Int {
-    return this.toDouble().pow(exponent.toDouble()).toInt()
-}
+/**
+ * A routing algorithm that finds the optimal path between two cells. The algorithm is responsible for finding the path
+ * and returning the result.
+ */
+interface RoutingAlgorithm {
 
-fun Array<Any?>.empty() {
-    for (i in indices) {
-        this[i] = null
-    }
-}
+    /**
+     * Finds the optimal path between the start and end cell using the given travel cost supplier.
+     * @param start the start cell.
+     * @param end the end cell.
+     * @param travelCost the travel cost supplier.
+     * @return the routing result.
+     */
+    fun findPath(start: Cell, end: Cell, travelCost: CellTravelCostSupplier): RoutingResult
 
-fun Array<Array<Any?>>.empty() {
-    for (i in indices) {
-        this[i].empty()
-    }
+    /**
+     * Gets the name of the algorithm.
+     */
+    fun getAlgorithmName(): String
 }

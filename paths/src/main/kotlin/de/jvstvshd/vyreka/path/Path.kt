@@ -26,11 +26,12 @@
 
 package de.jvstvshd.vyreka.path
 
-import de.jvstvshd.vyreka.cell.Cell
+import de.jvstvshd.vyreka.core.cell.Cell
 
 /**
  * A path is a list of cells that are connected to each other and walkable entirely.
  * An object always consists of at least one cell.
+ * @since 1.0.0
  */
 interface Path : Comparable<Path> {
 
@@ -129,6 +130,10 @@ interface Path : Comparable<Path> {
         return currentCost.compareTo(other.currentCost)
     }
 
+    /**
+     * A path that is empty. This path has no cells and is not finished. Forking this path will always return this path;
+     * it is not possible to lengthen this path.
+     */
     object Empty : Path {
 
         override val start: Cell

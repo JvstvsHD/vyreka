@@ -24,10 +24,17 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka.cell
+package de.jvstvshd.vyreka.path.routing
 
-enum class CellAccessMode {
-    ALL,
-    ACCESSIBLE,
-    INACCESSIBLE
-}
+import de.jvstvshd.vyreka.path.Path
+import kotlin.time.Duration
+
+/**
+ * A routing result that contains the path, duration and actions taken to find the path.
+ * @param path the path.
+ * @param duration the duration.
+ * @param actions the actions taken.
+ * @see Path
+ * @since 1.0.0
+ */
+data class RoutingResult(val path: Path, val duration: Duration, val actions: Long)

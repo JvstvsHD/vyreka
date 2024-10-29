@@ -24,30 +24,32 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka.map
+package de.jvstvshd.vyreka.core
 
-import de.jvstvshd.vyreka.Location
-import de.jvstvshd.vyreka.cell.Cell
-import java.io.PrintStream
+import kotlin.math.pow
 
-interface LocationMap {
+/**
+ * Calculates the power of this integer to the given exponent. This is a shorthand for `this.toDouble().pow(exponent.toDouble()).toInt()`.
+ * @param exponent the exponent to raise this integer to.
+ */
+fun Int.pow(exponent: Int): Int {
+    return this.toDouble().pow(exponent.toDouble()).toInt()
+}
 
-    val height: Int
-    val width: Int
-
-    fun getCellAtOrNull(location: Location): Cell?
-
-    fun getCellAt(location: Location): Cell {
-        return getCellAtOrNull(location) ?: throw IllegalArgumentException("No cell at $location")
+/**
+ * Clears all elements in this array by setting them to `null`.
+ */
+fun Array<Any?>.clear() {
+    for (i in indices) {
+        this[i] = null
     }
+}
 
-    fun getLayers(): List<MapLayer>
-
-    fun getLayer(layer: Int): MapLayer
-
-    fun addLayer(layer: MapLayer): Int
-
-    fun clearPaths()
-
-    fun print(to: PrintStream = System.out)
+/**
+ * Clears all elements in this 2-dimensional array by setting them to `null`.
+ */
+fun Array<Array<Any?>>.clear() {
+    for (i in indices) {
+        this[i].clear()
+    }
 }

@@ -26,11 +26,11 @@
 
 package de.jvstvshd.vyreka.path
 
-import de.jvstvshd.vyreka.Location
-import de.jvstvshd.vyreka.cell.Cell
-import de.jvstvshd.vyreka.map.LocationMap
-import de.jvstvshd.vyreka.path.finder.PathFindingAlgorithm
-import de.jvstvshd.vyreka.path.finder.PathFindingResult
+import de.jvstvshd.vyreka.core.Location
+import de.jvstvshd.vyreka.core.cell.Cell
+import de.jvstvshd.vyreka.core.map.VyrekaMap
+import de.jvstvshd.vyreka.path.routing.RoutingAlgorithm
+import de.jvstvshd.vyreka.path.routing.RoutingResult
 
 /**
  * Finds a path from the start location to the end location using the specified algorithm and cost supplier.
@@ -39,12 +39,12 @@ import de.jvstvshd.vyreka.path.finder.PathFindingResult
  * @param algorithm the algorithm to use.
  * @param cost the cost supplier.
  */
-fun LocationMap.findPath(
+fun VyrekaMap.findPath(
     start: Location,
     end: Location,
-    algorithm: PathFindingAlgorithm,
+    algorithm: RoutingAlgorithm,
     cost: CellTravelCostSupplier
-): PathFindingResult {
+): RoutingResult {
     return algorithm.findPath(getCellAt(start), getCellAt(end), cost)
 }
 

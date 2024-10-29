@@ -93,6 +93,14 @@ subprojects {
                     }
                 }
             }
+            dokka {
+                dokkaSourceSets {
+                    configureEach {
+                        moduleName.set(project.name)
+                        includes.from("../Module.md")
+                    }
+                }
+            }
         }
     }
 }
@@ -101,6 +109,8 @@ dependencies {
     dokka(projects.core)
     dokka(projects.paths)
 }
+
+
 
 fun Project.buildNumber(): String? {
     if (hasProperty("buildnumber")) {

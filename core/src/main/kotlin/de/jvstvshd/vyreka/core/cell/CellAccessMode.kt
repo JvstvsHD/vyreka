@@ -24,9 +24,24 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka.path.finder
+package de.jvstvshd.vyreka.core.cell
 
-import de.jvstvshd.vyreka.path.Path
-import kotlin.time.Duration
-
-data class PathFindingResult(val path: Path, val duration: Duration, val actions: Long)
+/**
+ * The access mode of a cell, which can be either accessible, inaccessible or all. It defines, coming from one cell, which
+ * cells to search for accessibility.
+ * @since 1.0.0
+ */
+enum class CellAccessMode {
+    /**
+     * All cells, regardless of their accessibility, should be considered.
+     */
+    ALL,
+    /**
+     * Only accessible cells should be considered.
+     */
+    ACCESSIBLE,
+    /**
+     * Only inaccessible cells should be considered.
+     */
+    INACCESSIBLE
+}
