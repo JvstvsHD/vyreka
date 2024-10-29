@@ -80,7 +80,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":paths/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-cell-travel-cost-supplier/index.html">CellTravelCostSupplier</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":paths/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-cell-travel-cost-supplier/index.html">CellTravelCostSupplier</a></div><div class="brief "><p class="paragraph">A supplier that provides the cost of traveling between two cells in a juxtaposition. This will not calculate the cost of a total path, but only the cost of traveling between two cells. The cost is represented as an integer, where a higher value means a higher cost. The cost should be positive and non-negative.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":paths/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-simple-path/index.html">SimplePath</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>start<span class="token operator">: </span><a href="../../core/de.jvstvshd.vyreka.cell/-cell/index.html">Cell</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>currentCost<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">currPath<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../core/de.jvstvshd.vyreka.cell/-cell/index.html">Cell</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="-path/index.html">Path</a></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":paths/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-simple-path/index.html">SimplePath</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>start<span class="token operator">: </span><a href="../../core/de.jvstvshd.vyreka.core.cell/-cell/index.html">Cell</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>currentCost<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">currPath<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../core/de.jvstvshd.vyreka.core.cell/-cell/index.html">Cell</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <a href="-path/index.html">Path</a></div></div></div>
                 </div>
               </div>
             </div>
@@ -119,32 +119,32 @@
       </div>
       <div data-togglable="EXTENSION_FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="-413908022%2FFunctions%2F1583102684" anchor-label="findPath" id="-413908022%2FFunctions%2F1583102684" data-filterable-set=":paths/main"></a>
+        <div class="table"><a data-name="1251109884%2FFunctions%2F1583102684" anchor-label="findPath" id="1251109884%2FFunctions%2F1583102684" data-filterable-set=":paths/main"></a>
           <div class="table-row" data-filterable-current=":paths/main" data-filterable-set=":paths/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="find-path.html"><span>find</span><wbr><span><span>Path</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-413908022%2FFunctions%2F1583102684"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1251109884%2FFunctions%2F1583102684"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":paths/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../core/de.jvstvshd.vyreka.map/-location-map/index.html">LocationMap</a><span class="token punctuation">.</span><a href="find-path.html"><span class="token function">findPath</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">start<span class="token operator">: </span><a href="../../core/de.jvstvshd.vyreka/-location/index.html">Location</a><span class="token punctuation">, </span></span><span class="parameter ">end<span class="token operator">: </span><a href="../../core/de.jvstvshd.vyreka/-location/index.html">Location</a><span class="token punctuation">, </span></span><span class="parameter ">algorithm<span class="token operator">: </span><a href="../de.jvstvshd.vyreka.path.finder/-path-finding-algorithm/index.html">PathFindingAlgorithm</a><span class="token punctuation">, </span></span><span class="parameter ">cost<span class="token operator">: </span><a href="-cell-travel-cost-supplier/index.html">CellTravelCostSupplier</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../de.jvstvshd.vyreka.path.finder/-path-finding-result/index.html">PathFindingResult</a></div><div class="brief "><p class="paragraph">Finds a path from the start location to the end location using the specified algorithm and cost supplier.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":paths/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../core/de.jvstvshd.vyreka.core.map/-vyreka-map/index.html">VyrekaMap</a><span class="token punctuation">.</span><a href="find-path.html"><span class="token function">findPath</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">start<span class="token operator">: </span><a href="../../core/de.jvstvshd.vyreka.core/-location/index.html">Location</a><span class="token punctuation">, </span></span><span class="parameter ">end<span class="token operator">: </span><a href="../../core/de.jvstvshd.vyreka.core/-location/index.html">Location</a><span class="token punctuation">, </span></span><span class="parameter ">algorithm<span class="token operator">: </span><a href="../de.jvstvshd.vyreka.path.routing/-routing-algorithm/index.html">RoutingAlgorithm</a><span class="token punctuation">, </span></span><span class="parameter ">cost<span class="token operator">: </span><a href="-cell-travel-cost-supplier/index.html">CellTravelCostSupplier</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../de.jvstvshd.vyreka.path.routing/-routing-result/index.html">RoutingResult</a></div><div class="brief "><p class="paragraph">Finds a path from the start location to the end location using the specified algorithm and cost supplier.</p></div></div></div>
                 </div>
               </div>
             </div>
           </div>
-<a data-name="438812499%2FFunctions%2F1583102684" anchor-label="path" id="438812499%2FFunctions%2F1583102684" data-filterable-set=":paths/main"></a>
+<a data-name="1314632374%2FFunctions%2F1583102684" anchor-label="path" id="1314632374%2FFunctions%2F1583102684" data-filterable-set=":paths/main"></a>
           <div class="table-row" data-filterable-current=":paths/main" data-filterable-set=":paths/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="path.html"><span><span>path</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="438812499%2FFunctions%2F1583102684"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1314632374%2FFunctions%2F1583102684"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":paths/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../core/de.jvstvshd.vyreka.cell/-cell/index.html">Cell</a><span class="token punctuation">.</span><a href="path.html"><span class="token function">path</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-path/index.html">Path</a></div><div class="brief "><p class="paragraph">Creates a new path that only contains the specified cell. The path has a length of 0. It starts and ends at the specified cell.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":paths/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="../../core/de.jvstvshd.vyreka.core.cell/-cell/index.html">Cell</a><span class="token punctuation">.</span><a href="path.html"><span class="token function">path</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-path/index.html">Path</a></div><div class="brief "><p class="paragraph">Creates a new path that only contains the specified cell. The path has a length of 0. It starts and ends at the specified cell.</p></div></div></div>
                 </div>
               </div>
             </div>

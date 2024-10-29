@@ -1,0 +1,172 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>VyrekaMap</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            vyreka
+                    </a>            </div>
+            <div class="library-version">1.0.0-SNAPSHOT
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":core/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="core::de.jvstvshd.vyreka.core.map/VyrekaMap///PointingToDeclaration//-431355489">
+  <div class="breadcrumbs"><a href="../../index.html">core</a><span class="delimiter">/</span><a href="../index.html">de.jvstvshd.vyreka.core.map</a><span class="delimiter">/</span><span class="current">VyrekaMap</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Vyreka</span><wbr><span><span>Map</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">VyrekaMap</a></div><p class="paragraph">A map of locations that are arranged in a 3-dimensional grid. Each location within bounds should contain a cell, except stated otherwise by an implementation. A cell can be accessed through its location. The map has a width, height and depth, which represent the x, y and z axes respectively.</p><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">1.0.0</p></span><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../de.jvstvshd.vyreka.core.cell/-cell/index.html"><span><span>Cell</span></span></a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../../de.jvstvshd.vyreka.core/-location/index.html"><span><span>Location</span></span></a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-layered-map/index.html"><span>Layered</span><wbr><span><span>Map</span></span></a></div></span></div><div></div></div></div></div><h4 class="">Inheritors</h4><div class="table"><div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-layered-map/index.html">LayeredMap</a></div></span></div><div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1170614964%2FProperties%2F-431355489" anchor-label="depth" id="1170614964%2FProperties%2F-431355489" data-filterable-set=":core/main"></a>
+          <div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="depth.html"><span><span>depth</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1170614964%2FProperties%2F-431355489"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="depth.html">depth</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The depth of the map, represented as the z-axis.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-905304228%2FProperties%2F-431355489" anchor-label="height" id="-905304228%2FProperties%2F-431355489" data-filterable-set=":core/main"></a>
+          <div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="height.html"><span><span>height</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-905304228%2FProperties%2F-431355489"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="height.html">height</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The height of the map, represented as the y-axis.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1375067887%2FProperties%2F-431355489" anchor-label="width" id="-1375067887%2FProperties%2F-431355489" data-filterable-set=":core/main"></a>
+          <div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="width.html"><span><span>width</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1375067887%2FProperties%2F-431355489"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">val </span><a href="width.html">width</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">The width of the map, represented as the x-axis.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1235521489%2FFunctions%2F-431355489" anchor-label="getCellAt" id="-1235521489%2FFunctions%2F-431355489" data-filterable-set=":core/main"></a>
+          <div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cell-at.html"><span>get</span><wbr><span>Cell</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1235521489%2FFunctions%2F-431355489"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="get-cell-at.html"><span class="token function">getCellAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">location<span class="token operator">: </span><a href="../../de.jvstvshd.vyreka.core/-location/index.html">Location</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../de.jvstvshd.vyreka.core.cell/-cell/index.html">Cell</a></div><div class="brief "><p class="paragraph">Tries to retrieve a cell at the given location. If there is no cell at the location, for example since the location is out of bounds, an exception is thrown. This method should only be used if it is guaranteed that there is a cell at the location.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1774340613%2FFunctions%2F-431355489" anchor-label="getCellAtOrNull" id="1774340613%2FFunctions%2F-431355489" data-filterable-set=":core/main"></a>
+          <div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cell-at-or-null.html"><span>get</span><wbr><span>Cell</span><wbr><span>At</span><wbr><span>Or</span><wbr><span><span>Null</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1774340613%2FFunctions%2F-431355489"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="get-cell-at-or-null.html"><span class="token function">getCellAtOrNull</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">location<span class="token operator">: </span><a href="../../de.jvstvshd.vyreka.core/-location/index.html">Location</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../de.jvstvshd.vyreka.core.cell/-cell/index.html">Cell</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Tries to retrieve a cell at the given location. If there is no cell at the location, for example since the location is out of bounds, null is returned. However, as long as the location is within the bounds of the map, this method should never return null.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2024 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

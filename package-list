@@ -2,10 +2,10 @@ $dokka.format:html-v1
 $dokka.linkExtension:html
 
 module:core
-de.jvstvshd.vyreka
-de.jvstvshd.vyreka.cell
-de.jvstvshd.vyreka.map
+de.jvstvshd.vyreka.core
+de.jvstvshd.vyreka.core.cell
+de.jvstvshd.vyreka.core.map
 module:paths
 de.jvstvshd.vyreka.path
-de.jvstvshd.vyreka.path.finder
-de.jvstvshd.vyreka.path.finder.dijkstra
+de.jvstvshd.vyreka.path.routing
+de.jvstvshd.vyreka.path.routing.dijkstra
