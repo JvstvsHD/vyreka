@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":core/main":[],":paths/main":[]}'

@@ -1,0 +1,11 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:core
+de.jvstvshd.vyreka
+de.jvstvshd.vyreka.cell
+de.jvstvshd.vyreka.map
+module:paths
+de.jvstvshd.vyreka.path
+de.jvstvshd.vyreka.path.finder
+de.jvstvshd.vyreka.path.finder.dijkstra
