@@ -19,6 +19,8 @@ allprojects {
 }
 
 subprojects {
+    group = rootProject.group
+    version = rootProject.version
     apply {
         plugin<MavenPublishPlugin>()
         plugin<SigningPlugin>()
@@ -94,6 +96,7 @@ subprojects {
                 }
             }
             dokka {
+                println(publishingVersion())
                 dokkaSourceSets {
                     configureEach {
                         moduleName.set(project.name)
@@ -109,8 +112,6 @@ dependencies {
     dokka(projects.core)
     dokka(projects.paths)
 }
-
-
 
 fun Project.buildNumber(): String? {
     if (hasProperty("buildnumber")) {
