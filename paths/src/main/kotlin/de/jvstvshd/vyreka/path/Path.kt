@@ -50,7 +50,7 @@ interface Path : Comparable<Path> {
     /**
      * The current cost of this path.
      */
-    val currentCost: Int
+    val currentCost: Double
 
     /**
      * Whether this path is finished or not. A path is finished if the [end] cell is reached.
@@ -80,7 +80,7 @@ interface Path : Comparable<Path> {
 
     /**
      * Forks the path at the [given position][at] and returns a new path that starts at the same [start] as this path
-     * and includes this path's last cell at the second last index and at the last index, the [given cell][cell].
+     * and includes this path's last cell before [at] at the second last index and at the last index, the [given cell][cell].
      * If a new cell is added onto this path, it will not appear in the forked path's cell listing.
      * @param cell the cell to which this path should be forked to
      * @param at the index position at which this path should be forked; if this is negative, the path will be forked at the last element
@@ -89,7 +89,30 @@ interface Path : Comparable<Path> {
      * @throws IllegalArgumentException if [at] is greater than the length of this path
      * @throws IllegalArgumentException if [cell] is not a neighbor of the cell at [at]
      */
-    fun forkTo(cell: Cell, cost: CellTravelCostSupplier, at: Int = -1): Path
+    fun forkTo(cell: Cell, at: Int = -1, cost: CellTravelCostSupplier = CellTravelCostSupplier.None): Path
+
+    /**
+     * Pursues this path to the [given cell][cell]. This will add the [given cell][cell] to the end of this path without
+     * increasing the cost of this path. If the [given cell][cell] is not a neighbor of the last cell of this path, an
+     * exception will be thrown.
+     * @param cell the cell to pursue this path to
+     * @throws IllegalArgumentException if [cell] is not a neighbor of the last cell of this path
+     * @see forkTo
+     */
+    fun pursueTo(cell: Cell)
+
+    /**
+     * Pursues this path to the [given cell][cell]. This will add the [given cell][cell] to the end of this path without
+     * increasing the cost of this path. If the [given cell][cell] is not a neighbor of the last cell of this path, an
+     * exception will be thrown.
+     * @param cell the cell to pursue this path to
+     * @throws IllegalArgumentException if [cell] is not a neighbor of the last cell of this path
+     * @see forkTo
+     */
+    operator fun plus(cell: Cell): Path {
+        pursueTo(cell)
+        return this
+    }
 
     /**
      * Creates a new sub path that includes all cells from this path starting at [from] (inclusive) to [to] (inclusive).
@@ -139,7 +162,7 @@ interface Path : Comparable<Path> {
         override val start: Cell
             get() = throw NoSuchElementException("Empty path")
         override val end: Cell? = null
-        override val currentCost: Int = Int.MAX_VALUE
+        override val currentCost: Double = Double.MAX_VALUE
         override var finished: Boolean = false
 
         override fun getCells(): List<Cell> = emptyList()
@@ -148,8 +171,10 @@ interface Path : Comparable<Path> {
 
         override fun getLast(): Cell = throw NoSuchElementException("Empty path")
 
-        override fun forkTo(cell: Cell, cost: CellTravelCostSupplier, at: Int): Path = this
+        override fun forkTo(cell: Cell, at: Int, cost: CellTravelCostSupplier): Path = this
 
         override fun subPath(from: Int, to: Int): Path = this
+
+        override fun pursueTo(cell: Cell) {}
     }
 }

@@ -28,7 +28,6 @@ package de.jvstvshd.vyreka.core.map
 
 import de.jvstvshd.vyreka.core.Location
 import de.jvstvshd.vyreka.core.cell.Cell
-import java.io.PrintStream
 
 /**
  * A map of locations that are arranged in a 3-dimensional grid. Each location within bounds should contain a cell, except
@@ -76,4 +75,27 @@ interface VyrekaMap {
     fun getCellAt(location: Location): Cell {
         return getCellAtOrNull(location) ?: throw IllegalArgumentException("No cell at $location")
     }
+
+    /**
+     * Removes the cell at the given location. If there is no cell at the location, null is returned. Otherwise, the removed
+     * cell is returned.
+     * @param location the location to remove the cell from
+     * @return the removed cell, or null if there is no cell at the location
+     */
+    fun removeCellAt(location: Location): Cell?
+
+    /**
+     * Sets the cell at the given location to the given cell. If there is already a cell at the location, it will be
+     * overwritten by the new cell.
+     * @param location the location to set the cell at
+     * @param cell the cell to set at the location
+     * @throws IllegalArgumentException if the location is out of bounds
+     */
+    fun setCell(cell: Cell)
+
+    /**
+     * Creates a list of all cells in the map. The order of the cells is not specified and may vary between different
+     * implementations.
+     */
+    fun cells(): List<Cell>
 }

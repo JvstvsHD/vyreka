@@ -28,13 +28,13 @@ package de.jvstvshd.vyreka.path
 
 import de.jvstvshd.vyreka.core.cell.Cell
 
-class SimplePath(override val start: Cell, override val currentCost: Int, currPath: List<Cell>) : Path {
+class SimplePath(override val start: Cell, override val currentCost: Double, currPath: List<Cell>) : Path {
 
     override var end: Cell? = null
         private set
 
     override var finished: Boolean = false
-    private val currentPath = currPath
+    private val currentPath = currPath.toMutableList()
 
     override fun getCells(): List<Cell> = currentPath.toList()
 
@@ -42,7 +42,7 @@ class SimplePath(override val start: Cell, override val currentCost: Int, currPa
 
     override fun getLast(): Cell = currentPath.last()
 
-    override fun forkTo(cell: Cell, cost: CellTravelCostSupplier, at: Int): Path {
+    override fun forkTo(cell: Cell, at: Int, cost: CellTravelCostSupplier): Path {
         if (at >= 0) {
             val forkAt = currentPath[at]
             val subPath = subPathUntil(at)
@@ -56,6 +56,10 @@ class SimplePath(override val start: Cell, override val currentCost: Int, currPa
                 currentCost + cost(cell, getLast()),
                 currentPath.toMutableList().apply { add(cell) })
         }
+    }
+
+    override fun pursueTo(cell: Cell) {
+        currentPath.add(cell)
     }
 
     override fun subPath(from: Int, to: Int): Path {

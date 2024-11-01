@@ -40,22 +40,40 @@ interface CellTravelCostSupplier {
     /**
      * Calculates the cost of traveling between two locations. The cost should be positive and non-negative.
      */
-    operator fun invoke(start: Location, end: Location): Int
+    operator fun invoke(start: Location, end: Location): Double
 
     /**
      * Calculates the cost of traveling between two locatable objects. The cost should be positive and non-negative.
      * Note: If at least on of the locatable objects is a [de.jvstvshd.vyreka.core.Movable], only the current location
      * will be considered.
      */
-    operator fun invoke(start: Locatable, end: Locatable): Int = invoke(start.location, end.location)
+    operator fun invoke(start: Locatable, end: Locatable): Double = invoke(start.location, end.location)
 
     /**
      * The maximum cost of traveling between two cells in a juxtaposition.
      */
-    val maximumCost: Int
+    val maximumCost: Double
 
     /**
      * The minimum cost of traveling between two cells in a juxtaposition.
      */
-    val minimumCost: Int
+    val minimumCost: Double
+    
+
+
+    object None : CellTravelCostSupplier {
+        override fun invoke(start: Location, end: Location): Double = 0.0
+        override val maximumCost: Double = 0.0
+        override val minimumCost: Double = 0.0
+    }
+    
+    object Distance : CellTravelCostSupplier {
+        override fun invoke(start: Location, end: Location): Double {
+            require(start.isAdjacentTo(end, true)) { "The locations must be adjacent to each other." }
+            return start.distanceTo(end)
+        }
+
+        override val maximumCost: Double = Double.POSITIVE_INFINITY
+        override val minimumCost: Double = 0.0
+    }
 }

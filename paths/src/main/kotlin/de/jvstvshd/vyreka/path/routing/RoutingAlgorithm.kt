@@ -26,6 +26,7 @@
 
 package de.jvstvshd.vyreka.path.routing
 
+import de.jvstvshd.vyreka.core.Locatable
 import de.jvstvshd.vyreka.core.cell.Cell
 import de.jvstvshd.vyreka.path.CellTravelCostSupplier
 

@@ -26,8 +26,11 @@
 
 package de.jvstvshd.vyreka.path.routing.dijkstra
 
+import de.jvstvshd.vyreka.core.attribute.Key
+import de.jvstvshd.vyreka.core.attribute.getAttributeTypeOrNull
 import de.jvstvshd.vyreka.core.cell.Cell
 import de.jvstvshd.vyreka.core.cell.CellAccessMode
+import de.jvstvshd.vyreka.core.encodeToLong
 import de.jvstvshd.vyreka.path.CellTravelCostSupplier
 import de.jvstvshd.vyreka.path.Path
 import de.jvstvshd.vyreka.path.routing.RoutingAlgorithm
@@ -54,26 +57,26 @@ object DijkstraAlgorithm : RoutingAlgorithm {
 
     override fun findPath(start: Cell, end: Cell, travelCost: CellTravelCostSupplier): RoutingResult {
         validateInput(start, end)
+        val attrCode = Key.fromLong(start.location.encodeToLong() + end.location.encodeToLong())
         val pathsQueue: Queue<Path> = PriorityQueue(Comparator.naturalOrder())
         var path = start.path()
-        var actions: Long = 0
         val tv = measureTimedValue {
             while (path.getLast().location != end.location) {
                 for (neighbor in path.getLast()
                     .getNeighbors(CellAccessMode.ACCESSIBLE)) {
-                    val forkedPath = path.forkTo(neighbor, travelCost)
-                    actions++
+                    val forkedPath = path.forkTo(neighbor, cost = travelCost)
                     val newLast = forkedPath.getLast()
-                    /*if (forkedPath.currentCost < newLast.currentFastestVisit) {
-                        newLast.currentFastestPath = forkedPath
+                    if (forkedPath.currentCost < (newLast.getAttributeTypeOrNull<Double>(attrCode) ?: Double.MAX_VALUE)
+                    ) {
+                        newLast.setAttribute(attrCode, forkedPath.currentCost)
                         pathsQueue.add(forkedPath)
-                    }*/
+                    }
                 }
                 path = pathsQueue.poll()
             }
             path
         }
-        return RoutingResult(tv.value, tv.duration, actions)
+        return RoutingResult(tv.value, tv.duration)
     }
 
     override fun getAlgorithmName(): String {

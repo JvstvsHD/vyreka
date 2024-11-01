@@ -24,16 +24,27 @@
  * SOFTWARE.
  */
 
-package de.jvstvshd.vyreka.path.routing
+package de.jvstvshd.vyreka.core.attribute
 
-import de.jvstvshd.vyreka.path.Path
-import kotlin.time.Duration
+abstract class SimpleAttributeHolder(val attributeMap: MutableMap<Key, Any>) : AttributeHolder {
 
-/**
- * A routing result that contains the best path and duration taken to find the path.
- * @param path the path.
- * @param duration the duration.
- * @see Path
- * @since 1.0.0
- */
-data class RoutingResult(val path: Path, val duration: Duration)
+    override fun setAttribute(key: Key, value: Any) {
+        attributeMap[key] = value
+    }
+
+    override fun removeAttribute(key: Key): Any? {
+        return attributeMap.remove(key)
+    }
+
+    override fun getAttributeOrNull(key: Key): Any? {
+        return attributeMap[key]
+    }
+
+    override fun getKeys(): Set<Key> {
+        return attributeMap.keys
+    }
+
+    override fun getAttributes(): Map<Key, Any> {
+        return attributeMap
+    }
+}

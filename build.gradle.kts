@@ -64,8 +64,9 @@ subprojects {
                 }
                 publications {
                     create<MavenPublication>(rootProject.name) {
+                        from(this@subprojects.components["java"])
                         groupId = rootProject.group.toString().lowercase(Locale.getDefault())
-                        artifactId = project.name
+                        artifactId = "vyreka-" + project.name
                         version = project.publishingVersion()
 
                         pom {
@@ -96,7 +97,6 @@ subprojects {
                 }
             }
             dokka {
-                println(publishingVersion())
                 dokkaSourceSets {
                     configureEach {
                         moduleName.set(project.name)
@@ -105,6 +105,10 @@ subprojects {
                 }
             }
         }
+    }
+    java {
+        withSourcesJar()
+        withJavadocJar()
     }
 }
 
