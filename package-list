@@ -3,6 +3,7 @@ $dokka.linkExtension:html
 
 module:core
 de.jvstvshd.vyreka.core
+de.jvstvshd.vyreka.core.attribute
 de.jvstvshd.vyreka.core.cell
 de.jvstvshd.vyreka.core.map
 module:paths

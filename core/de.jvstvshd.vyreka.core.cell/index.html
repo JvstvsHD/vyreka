@@ -81,7 +81,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-cell/index.html">Cell</a> : <a href="../de.jvstvshd.vyreka.core/-locatable/index.html">Locatable</a></div><div class="brief "><p class="paragraph">A cell is a single unit in a map. It is located at a specific location in 3-dimensional space and can possibly be accessed from other cells. A cell can have different properties, for example it could be a wall cell, which is not accessible from other cells. A cell can be uniquely identified by its location and the map it is located on.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-cell/index.html">Cell</a> : <a href="../de.jvstvshd.vyreka.core/-locatable/index.html">Locatable</a>, <a href="../de.jvstvshd.vyreka.core.attribute/-attribute-holder/index.html">AttributeHolder</a></div><div class="brief "><p class="paragraph">A cell is a single unit in a map. It is located at a specific location in 3-dimensional space and can possibly be accessed from other cells. A cell can have different properties, for example it could be a wall cell, which is not accessible from other cells. A cell can be uniquely identified by its location and the map it is located on.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -97,6 +97,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-cell-access-mode/index.html">CellAccessMode</a> : <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-cell-access-mode/index.html">CellAccessMode</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">The access mode of a cell, which can be either accessible, inaccessible or all. It defines, coming from one cell, which cells to search for accessibility.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1608201906%2FClasslikes%2F-431355489" anchor-label="SimpleGridCell" id="1608201906%2FClasslikes%2F-431355489" data-filterable-set=":core/main"></a>
+          <div class="table-row" data-filterable-current=":core/main" data-filterable-set=":core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-simple-grid-cell/index.html"><span>Simple</span><wbr><span>Grid</span><wbr><span><span>Cell</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1608201906%2FClasslikes%2F-431355489"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":core/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-simple-grid-cell/index.html">SimpleGridCell</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>location<span class="token operator">: </span><a href="../de.jvstvshd.vyreka.core/-location/index.html">Location</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>map<span class="token operator">: </span><a href="../de.jvstvshd.vyreka.core.map/-vyreka-map/index.html">VyrekaMap</a></span></span><span class="token punctuation">)</span> : <a href="../de.jvstvshd.vyreka.core.attribute/-simple-attribute-holder/index.html">SimpleAttributeHolder</a>, <a href="-cell/index.html">Cell</a></div><div class="brief "><p class="paragraph">A simple implementation of a <a href="-cell/index.html">Cell</a> that is used in a grid-based map.</p></div></div></div>
                 </div>
               </div>
             </div>
