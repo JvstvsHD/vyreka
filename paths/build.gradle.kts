@@ -1,12 +1,13 @@
 plugins {
-    kotlin("jvm")
+    kotlin("multiplatform")
 }
 
-dependencies {
-    api(projects.core)
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                api(projects.core)
+            }
+        }
+    }
 }

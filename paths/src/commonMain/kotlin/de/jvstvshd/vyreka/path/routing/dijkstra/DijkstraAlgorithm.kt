@@ -33,10 +33,10 @@ import de.jvstvshd.vyreka.core.cell.CellAccessMode
 import de.jvstvshd.vyreka.core.encodeToLong
 import de.jvstvshd.vyreka.path.CellTravelCostSupplier
 import de.jvstvshd.vyreka.path.Path
+import de.jvstvshd.vyreka.path.PriorityQueue
 import de.jvstvshd.vyreka.path.routing.RoutingAlgorithm
 import de.jvstvshd.vyreka.path.routing.RoutingResult
 import de.jvstvshd.vyreka.path.path
-import java.util.*
 import kotlin.time.measureTimedValue
 
 /**
@@ -58,7 +58,7 @@ object DijkstraAlgorithm : RoutingAlgorithm {
     override fun findPath(start: Cell, end: Cell, travelCost: CellTravelCostSupplier): RoutingResult {
         validateInput(start, end)
         val attrCode = Key.fromLong(start.location.encodeToLong() + end.location.encodeToLong())
-        val pathsQueue: Queue<Path> = PriorityQueue(Comparator.naturalOrder())
+        val pathsQueue = PriorityQueue<Path>()
         var path = start.path()
         val tv = measureTimedValue {
             while (path.getLast().location != end.location) {

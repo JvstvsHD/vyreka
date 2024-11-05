@@ -97,5 +97,5 @@ interface VyrekaMap {
      * Creates a list of all cells in the map. The order of the cells is not specified and may vary between different
      * implementations.
      */
-    fun cells(): List<Cell>
+    fun getCellsFlattened(): List<Cell>
 }

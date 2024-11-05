@@ -81,7 +81,6 @@ data class StringKey(val key: String) : Key {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other == null || javaClass != other.javaClass) return false
         if (other !is StringKey) return false
         return key == other.key
     }
@@ -107,12 +106,11 @@ data class LongKey(val key: Long) : Key {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other == null || javaClass != other.javaClass) return false
         if (other !is LongKey) return false
         return key == other.key
     }
 
     override fun hashCode(): Int {
-        return java.lang.Long.hashCode(key)
+        return key.hashCode()
     }
 }

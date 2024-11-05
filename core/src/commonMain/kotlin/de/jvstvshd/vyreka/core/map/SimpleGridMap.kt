@@ -72,7 +72,7 @@ open class SimpleGridMap(override val width: Int, override val height: Int, over
         return location.x in 0 until width && location.y in 0 until height && location.z in 0 until depth
     }
 
-    override fun cells(): List<Cell> {
+    override fun getCellsFlattened(): List<Cell> {
         return cells.flatten().flatMap { it.toList() }.filterNotNull()
     }
 }
