@@ -48,13 +48,31 @@ subprojects {
         js {
             nodejs()
         }
+        //Apple
         iosArm64()
         iosX64()
+        iosSimulatorArm64()
         macosArm64()
         macosX64()
+
+        tvosSimulatorArm64()
+        tvosX64()
+        tvosArm64()
+
+        watchosSimulatorArm64()
+        watchosX64()
+        watchosArm32()
+        watchosArm64()
+        watchosDeviceArm64()
+
+        //Linux
         linuxArm64()
         linuxX64()
+
+        //Windows
         mingwX64()
+
+        //Android
         androidNativeX64()
         androidNativeArm64()
         androidNativeX86()
