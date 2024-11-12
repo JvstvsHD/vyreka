@@ -16,7 +16,7 @@ on:
     branches:
       - '**'
 jobs:
-  publish:
+  publish_main:
     name: Build and publish library (JVM, JS, Android, Linux, MinGW)
     runs-on: ubuntu-latest
     steps:
