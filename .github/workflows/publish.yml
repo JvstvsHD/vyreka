@@ -51,9 +51,11 @@ jobs:
         with:
           folder: build/dokka/html
           target-folder: api-reference
+
   publish_apple:
     name: Build and publish library for Apple platforms
     runs-on: macos-latest
+    steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
