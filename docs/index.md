@@ -10,17 +10,73 @@ Currently, the library is available on the following platforms:
 
 - JVM
 - JS via Node.js
+- Wasm/JS and Wasm/WASI
 - Android:
     - JVM
     - Debug
-    - Native: X64, X86, ARM32, ARM64
-- Linux: X64, ARM64
-- MacOS: X64, ARM64
-- iOS: X64, ARM64
-- Mingw: X64
+    - Native (using Android NDK): x86_64, x86, ARM32 and ARM64
+- Linux: x86_64 and ARM64
+- Apple:
+  - MacOS: x86_64 and Apple Silicon platforms
+  - iOS: x86_64, ARM64 (also iPadOS) and simulator on X86_64
+  - WatchOS: ARM 32, ARM 64 with ILP32, ARM 64, x86_64 and simulator on Apple Silicon
+  - tvOS: ARM 64, simulator on Apple Silicon and x86_64
+- MinGW/Windows: 64-bit Windows 7 and later using MinGW
+
+For further information on targets of Kotlin Multiplatform, see the [official documentation](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets).
+
+
+??? abstract "The target platform is appended to the artifact name after a dash (`-`). For example, the artifact name for the JVM platform is `vyreka-core-jvm`. Use the following suffixes for the respective platform-only artifacts:"
+
+    === "JVM"
+        - JVM: `jvm`
+
+    === "Web"
+        - JS: `js`
+        - Wasm:
+            - `wasm-js`
+            - `wasm-wasi`
+
+    === "Android"
+        - Android:
+            - `android`
+            - `android-debug`
+            - `androidnativearm32`
+            - `androidnativearm64`
+            - `androidnativex64`
+            - `androidnativex86`
+
+    === "Linux"
+        - Linux:
+            - `linuxarm64`
+            - `linuxx64`
+
+    === "Apple"
+        - Apple:
+            - MacOS:
+                - `macosarm64`
+                - `macosx64`
+            - iOS:
+                - `iosarm64`
+                - `iosarmsimulator64`
+                - `iosx64`
+            - WatchOS:
+                - `watchosarm32`
+                - `watchosarm64`
+                - `watchossimulatorarm64`
+                - `watchosarmdevice64`
+                - `watchosx64`
+            - tvOS:
+                - `tvosarm64`
+                - `tvosarmsimulator64`
+                - `tvosx64`
+
+    === "MinGW/Windows"
+        - MinGW/Windows: `mingwx64`
+
 
 !!! warning "Availability of all target platforms"
-    The availability of the library on all platforms is not guaranteed at the moment, since this project is still in development.
+    Some targets may not be available in the current release. Please check the [release notes](https://github.com/JvstvsHD/vyreka/releases) for more information.
 
 ## Installation
 To install Vyreka, you need to configure the required [gradle dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)

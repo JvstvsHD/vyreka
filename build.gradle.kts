@@ -1,8 +1,11 @@
+@file:OptIn(ExperimentalWasmDsl::class)
+
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
 import com.vanniktech.maven.publish.MavenPublishPlugin
 import com.vanniktech.maven.publish.SonatypeHost
 import net.kyori.indra.licenser.spotless.IndraSpotlessLicenserPlugin
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     signing
@@ -45,9 +48,18 @@ subprojects {
     }
     kotlin {
         jvm()
+
+        //Web
         js {
             nodejs()
         }
+        wasmJs {
+            nodejs()
+        }
+        wasmWasi {
+            nodejs()
+        }
+
         //Apple
         iosArm64()
         iosX64()
