@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     signing
-    kotlin("multiplatform") version "2.0.20"
+    kotlin("multiplatform") version "2.0.21"
     id("org.jetbrains.dokka") version "2.0.0-Beta"
     id("net.kyori.indra.licenser.spotless") version "3.1.3"
     id("com.android.library") version "8.5.2"
@@ -17,7 +17,8 @@ plugins {
 }
 
 group = "de.jvstvshd.vyreka"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0"
+description = "A Kotlin Multiplatform library for maps and pathfinding."
 
 allprojects {
     apply {
@@ -160,7 +161,7 @@ subprojects {
                 if (signingKey != null && signingPassword != null) {
                     useInMemoryPgpKeys(signingKey, signingPassword)
                 }
-                //sign(publishing.publications)
+                sign(publishing.publications)
             }
         }
     }

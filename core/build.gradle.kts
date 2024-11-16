@@ -2,12 +2,4 @@ plugins {
     kotlin("multiplatform")
 }
 
-description = "Pathfinding extension for vyreka core"
-
-dependencies {
-}
-
-
-kotlin {
-
-}
+description = "Provides core functionality for the Vyreka library such as maps and cells."
