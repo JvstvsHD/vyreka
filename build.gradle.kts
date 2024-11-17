@@ -1,7 +1,6 @@
 @file:OptIn(ExperimentalWasmDsl::class)
 
 import com.android.build.gradle.LibraryExtension
-import com.android.build.gradle.api.AndroidBasePlugin
 import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.KotlinMultiplatform
 import com.vanniktech.maven.publish.MavenPublishPlugin
@@ -41,7 +40,7 @@ subprojects {
         plugin<MavenPublishPlugin>()
         plugin("com.android.library")
     }
-    extensions.configure<LibraryExtension>() {
+    extensions.configure<LibraryExtension> {
         namespace = "de.jvstvshd.vyreka"
         compileSdk = 19
     }
@@ -114,7 +113,7 @@ subprojects {
             }
             pom {
                 name.set(project.name)
-                description.set(project.description)
+                description.set("A Kotlin Multiplatform library for maps and pathfinding.")
                 url.set("https://github.com/JvstvsHD/vyreka")
 
                 developers {

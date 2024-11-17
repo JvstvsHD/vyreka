@@ -7,6 +7,7 @@
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
 
+# Split into separate jobs if the job running on macos-latest cannot build all native targets
 name: Publish package to the Maven Central Repository
 on:
   push:
@@ -17,8 +18,8 @@ on:
       - '**'
 jobs:
   publish_main:
-    name: Build and publish library (JVM, JS, Android, Linux, MinGW)
-    runs-on: ubuntu-latest
+    name: Build and publish library (JVM, JS, Android, Linux, MinGW and Apple targets)
+    runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -52,29 +53,29 @@ jobs:
           folder: build/dokka/html
           target-folder: api-reference
 
-  publish_apple:
-    name: Build and publish library for Apple platforms
-    runs-on: macos-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Set up Java
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-
-    - name: Validate Gradle wrapper
-      uses: gradle/actions/wrapper-validation@v3
-
-    - name: Build
-      run: ./gradlew build --stacktrace
-
-    - name: Publish
-      run: ./gradlew publish --stacktrace
-      env:
-        ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
-        ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
-        ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
-        ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
+#   publish_apple:
+#     name: Build and publish library for all platforms
+#     runs-on: macos-latest
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v4
+#
+#     - name: Set up Java
+#       uses: actions/setup-java@v4
+#       with:
+#         java-version: '17'
+#         distribution: 'temurin'
+#
+#     - name: Validate Gradle wrapper
+#       uses: gradle/actions/wrapper-validation@v3
+#
+#     - name: Build
+#       run: ./gradlew build --stacktrace
+#
+#     - name: Publish
+#       run: ./gradlew publish --stacktrace
+#       env:
+#         ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_USERNAME }}
+#         ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PASSWORD }}
+#         ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
+#         ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
