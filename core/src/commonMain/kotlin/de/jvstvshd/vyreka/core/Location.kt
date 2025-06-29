@@ -26,12 +26,14 @@
 
 package de.jvstvshd.vyreka.core
 
+import kotlinx.serialization.Serializable
 import kotlin.math.sqrt
 
 /**
  * Represents a location in the map grid. The location is represented by its x, y and z coordinates.
  */
-interface Location {
+@Serializable
+sealed interface Location {
 
     /**
      * Represents the x (length) coordinate of the location.
@@ -97,6 +99,7 @@ interface Axis {
     }
 }
 
+@Serializable
 data class ImmutableLocation(override val x: Int, override val y: Int, override val z: Int) : Location {
 
     override operator fun plus(other: Location): Location {
@@ -142,6 +145,7 @@ data class ImmutableLocation(override val x: Int, override val y: Int, override 
     }
 }
 
+@Serializable
 data class MutableLocation(override var x: Int, override var y: Int, override var z: Int) : Location {
 
     override operator fun plus(other: Location): Location {
@@ -262,7 +266,7 @@ class LocationBuilder(startX: Int = 0, startY: Int = 0, startZ: Int = 0) {
  * @see ImmutableLocation
  * @since 1.0.0
  */
-fun Location(x: Int, y: Int, z: Int): ImmutableLocation {
+fun Location(x: Int, y: Int, z: Int): Location {
     return ImmutableLocation(x, y, z)
 }
 

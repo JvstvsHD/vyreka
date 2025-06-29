@@ -11,15 +11,16 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 plugins {
     signing
-    kotlin("multiplatform") version "2.0.21" apply false
-    id("org.jetbrains.dokka") version "2.0.0-Beta"
+    kotlin("multiplatform") version "2.2.0" apply false
+    kotlin("plugin.serialization") version "2.2.0" apply false
+    id("org.jetbrains.dokka") version "2.0.0"
     id("net.kyori.indra.licenser.spotless") version "3.1.3"
-    id("com.android.library") version "8.5.2" apply false
-    id("com.vanniktech.maven.publish") version "0.30.0"
+    id("com.android.library") version "8.10.0" apply false
+    id("com.vanniktech.maven.publish") version "0.33.0"
 }
 
 group = "de.jvstvshd.vyreka"
-version = "1.0.0"
+version = "1.0.1"
 description = "A Kotlin Multiplatform library for maps and pathfinding."
 
 allprojects {
@@ -106,7 +107,7 @@ subprojects {
         mavenPublishing {
             val pubVersion = project.publishingVersion()
             coordinates("de.jvstvshd.vyreka", "vyreka-" + project.name, pubVersion)
-            publishToMavenCentral(SonatypeHost.S01, true)
+            publishToMavenCentral(true)
             configure(KotlinMultiplatform(javadocJar = JavadocJar.Dokka("dokkaGenerate"), sourcesJar = true))
             if (!System.getenv("DO_NOT_SIGN").toBoolean()) {
                 signAllPublications()
