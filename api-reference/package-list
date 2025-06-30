@@ -1,0 +1,13 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:de.jvstvshd.vyreka.path/PriorityQueue/delegateQueue/#/PointingToDeclaration/paths/de.jvstvshd.vyreka.path/-priority-queue/[jvm]delegate-queue.html
+$dokka.location:de.jvstvshd.vyreka.path/PriorityQueue/isEmpty/#/PointingToDeclaration/paths/de.jvstvshd.vyreka.path/-priority-queue/[wasm-wasi]is-empty.html
+module:core
+de.jvstvshd.vyreka.core
+de.jvstvshd.vyreka.core.attribute
+de.jvstvshd.vyreka.core.cell
+de.jvstvshd.vyreka.core.map
+module:paths
+de.jvstvshd.vyreka.path
+de.jvstvshd.vyreka.path.routing
+de.jvstvshd.vyreka.path.routing.dijkstra
